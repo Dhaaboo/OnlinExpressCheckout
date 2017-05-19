@@ -1,4 +1,5 @@
-﻿using OnlinExpressCheckout.Models;
+﻿using OnlinExpressCheckout.Logic;
+using OnlinExpressCheckout.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,6 +23,9 @@ namespace OnlinExpressCheckout
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             // Initialize the product database.
             Database.SetInitializer(new ProductDatabaseInitializer());
+            // Create the custom role and user.
+            RoleActions roleActions = new RoleActions();
+            roleActions.AddUserAndRole();
         }
     }
 }
